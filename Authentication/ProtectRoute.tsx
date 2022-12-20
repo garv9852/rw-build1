@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import AuthContext from './AuthContext';
-import {Navigate} from "react-router-dom"
 import Router from 'next/router';
-function ProtectRoute({children}) {
+interface prop{
+  children?:JSX.Element[] | JSX.Element  
+}
+function ProtectRoute({children}:prop) {
     const authent=useContext(AuthContext);
     console.log(Element);
     const x=()=>{
