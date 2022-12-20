@@ -6,7 +6,7 @@ import AuthContext from '../../Authentication/AuthContext';
 function Header() {
   const [small, setSmall] = useState("");
   const [logedIn, setLogedIn] = useState(false);
-  const { user, logout,cart,setCart } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   useEffect(() => {
     const check = () => {
       if (user != null)

@@ -11,7 +11,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.40.0",
-    "react-spinners": "^0.13.7"
+    "react-spinners": "^0.13.7",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
