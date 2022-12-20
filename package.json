@@ -8,6 +8,7 @@
   "dependencies": {
     "firebase": "^9.15.0",
     "next": "latest",
+    "next-absolute-url": "^1.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.40.0",
