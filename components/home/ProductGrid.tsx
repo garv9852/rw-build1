@@ -25,18 +25,19 @@ function ProductGrid() {
     getFun();
   },[])
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4 py-2 px-10 md:px-30 2xl:px-40'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center gap-4 py-2 px-10 md:px-20 2xl:px-40'>
       {
         allPost.map((post) => (
           <Link key={post.id} href="/" className='border rounded-lg max-w-[15rem] md:max-w-[18rem] lg:max-w-md'>
-            <div >
-              <img className="'border rounded-lg" src={post.image} alt={post.title+"-image"}/>
-            </div> 
-            <div className='p-5'>
-              <div className='text-xl h-8 overflow-hidden'>{post.title.slice(0,60)}...</div>
-              <div className='text-xl font-sans font-bold text-red-500'>₹ {post.price}.00</div>
-              <div className='flex justify-end'>
-                <Image src={cartImage} className="h-10 w-10 " alt="cart-image"/>
+              <img className="h-96 w-80 border object-cover rounded-lg" src={post.image} alt={post.title+"-image"}/>
+            <div className='p-2 flex justify-between items-center'>
+              <div>
+                <div className='font-semibold'>{post.title.slice(0,15)}</div>
+                <div className='text-sm text-slate-500 overflow-hidden h-4'>{post.description}dsdsd sdsd sds ds ds..</div>
+                <div className='text-slate-500 line-through inline-block'>{(post.price*120)/100}</div>
+                <span className='ml-2 text-slate-900 font-semibold'>₹{post.price}</span>
+                <span className='ml-2 text-green-500 font-semibold'>20% off</span>
+                <div className='text-xs'>Delivery charges ₹70</div>
               </div>
             </div>
           </Link>

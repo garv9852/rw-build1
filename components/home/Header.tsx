@@ -34,10 +34,10 @@ function Header() {
   }
   return (
     <header className={`sticky top-0 z-50 transition ease-in-out duration-300 bg-white ${small}`}>
-      <div className='p-3 flex justify-between max-w-7xl mx-auto'>
+      <div className='py-2 flex justify-between max-w-7xl mx-auto'>
         <div className='flex flex-row items-center'>
           <Link href="/">
-            <Image src={logo} alt="logo" className="object-contain w-24 md:w-28" />
+            <Image src={logo} alt="logo" className="object-contain w-20 md:w-20" />
           </Link>
           <div className='hidden md:inline-flex flex flex-row items-center'>
             <Link href="/about" className='ml-4 font-medium'>About</Link>
