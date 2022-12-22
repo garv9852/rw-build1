@@ -58,9 +58,9 @@ function product({ product }: props) {
             </Head>
             <Header />
             <section className="text-gray-600 body-font overflow-hidden">
-                <div className="container px-5 py-20 mx-auto">
+                <div className="container px-5 mx-auto py-8 sm:py-12 ">
                     <div className="lg:w-5/6 mx-auto flex flex-wrap justify-center">
-                        <img className="h-[35rem] w-[25rem] object-cover border rounded-xl" src={product.image} alt={product.title + "-image"} />
+                        <img className="w-[16rem] h-[23rem] sm:h-[35rem] sm:w-[25rem] object-cover border rounded-xl" src={product.image} alt={product.title + "-image"} />
                         <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.title}</h1>
                             <div className="flex mb-4">
