@@ -6,7 +6,7 @@ import AuthContext from '../../Authentication/AuthContext';
 function Header() {
   const [small, setSmall] = useState("");
   const [logedIn, setLogedIn] = useState(false);
-  const { user, logout,cart,setCart } = useContext(AuthContext);
+  const { user, logout, cart, setCart } = useContext(AuthContext);
   useEffect(() => {
     const check = () => {
       if (user != null)
@@ -37,7 +37,7 @@ function Header() {
       <div className='py-2 flex justify-between max-w-7xl mx-auto'>
         <div className='flex flex-row items-center'>
           <Link href="/">
-            <Image src={logo} alt="logo" className="object-contain w-20 md:w-20" />
+            <Image src={logo} alt="logo" className="w-16 object-contain sm:w-20 md:w-20" />
           </Link>
           <div className='hidden md:inline-flex flex flex-row items-center'>
             <Link href="/about" className='ml-4 font-medium'>About</Link>
@@ -59,7 +59,7 @@ function Header() {
                           <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                         </svg>
                         {
-                          cart.length!=0 && <span className="absolute top-0 left-0 rounded-full bg-red-500 text-white p-1 text-xs"></span>
+                          cart.length != 0 && <span className="absolute top-0 left-0 rounded-full bg-red-500 text-white p-1 text-xs"></span>
                         }
                       </div>
                     </div>
@@ -67,13 +67,14 @@ function Header() {
                   <div className='rounded-lg p-1'>
                     <div onClick={handleLogedOut} className='w-8 h-8 rounded-2xl bg-slate-300'></div>
                   </div>
-                </div> 
+                </div>
               )
               :
               (
                 <>
-                  <Link href="/signin" className='ml-3 text-red-500'>Sign In</Link><Link href="/login" className='ml-3 text-red-500'>
-                    <div className="border-2 border-red-500 pt-1 pb-1 pl-4 pr-4 rounded-3xl ">Log In</div>
+                  
+                  <Link href="/signin" className='text-sm sm:text-base ml-3 text-red-500'>Sign In</Link><Link href="/login" className='ml-3 text-red-500'>
+                    <div className="text-sm sm:text-base border-2 border-red-500 pt-1 pb-1 pl-4 pr-4 rounded-3xl ">Log In</div>
                   </Link>
                 </>
               )

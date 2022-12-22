@@ -46,7 +46,7 @@ function product({ product }: props) {
         }
     }
     const getCartNumber = () => {
-        let x = cart.filter((e:any) => {
+        let x = cart.filter((e: any) => {
             return e.id == product.id
         })
         return x.length;
@@ -127,7 +127,7 @@ function product({ product }: props) {
                         <select value={size} onChange={(e) => setSize(e.target.value)} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
                             {
                                 product.size.map((e) => (
-                                    <option value={size} key={e.label}>{e.label}</option>
+                                    <option value={e.label} key={e.label}>{e.label}</option>
                                 ))
                             }
                         </select>
