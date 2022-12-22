@@ -102,7 +102,7 @@ function product({ product }: props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex">
+                            <div className="flex items-center">
                                 <span className="title-font font-medium text-xl sm:text-2xl text-gray-900">₹ {product.price}.00</span>
                                 <button onClick={handleBuy} className=" flex ml-auto text-white bg-red-500 border-0 py-2 px-2 sm:px-6 focus:outline-none hover:bg-red-600 rounded">Buy Now</button>
                                 {
