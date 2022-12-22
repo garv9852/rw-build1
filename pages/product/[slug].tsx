@@ -103,14 +103,14 @@ function product({ product }: props) {
                                 </div>
                             </div>
                             <div className="flex">
-                                <span className="title-font font-medium text-2xl text-gray-900">₹ {product.price}.00</span>
-                                <button onClick={handleBuy} className=" flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Buy Now</button>
+                                <span className="title-font font-medium text-xl sm:text-2xl text-gray-900">₹ {product.price}.00</span>
+                                <button onClick={handleBuy} className=" flex ml-auto text-white bg-red-500 border-0 py-2 px-2 sm:px-6 focus:outline-none hover:bg-red-600 rounded">Buy Now</button>
                                 {
                                     itemInCart == 0 ?
-                                        (<button onClick={handleAddToCart} className=" flex ml-4 text-black outline outline-1 outline-red-500 py-2 px-6 hover:outline-2 rounded">Add To Cart</button>)
+                                        (<button onClick={handleAddToCart} className=" flex ml-2 sm:ml-4 text-black outline outline-1 outline-red-500 py-2 px-2 sm:px-6 hover:outline-2 rounded">Add To Cart</button>)
                                         :
                                         (<div className='ml-4 inline-block'>
-                                            <button onClick={handleAddToCart} className='p-2 border  rounded-lg border-red-500 focus:shadow'>+</button>
+                                            <button onClick={handleAddToCart} className='p-2 border rounded-lg border-red-500 focus:shadow'>+</button>
                                             <div className='inline-block px-6'>{itemInCart}</div>
                                             <button onClick={handleRemovefromCart} className='p-2 border rounded-lg border-red-500 focus:shadow-2xl'>-</button>
                                         </div>)
