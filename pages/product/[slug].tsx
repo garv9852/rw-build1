@@ -46,7 +46,7 @@ function product({ product }: props) {
         }
     }
     const getCartNumber = () => {
-        let x = cart.filter((e) => {
+        let x = cart.filter((e:any) => {
             return e.id == product.id
         })
         return x.length;
