@@ -33,7 +33,7 @@ function Header() {
     setLogedIn(false);
   }
   return (
-    <header className={`sticky top-0 z-50 transition ease-in-out duration-300 bg-white ${small}`}>
+    <header className={`sticky top-0 z-50 px-2 transition ease-in-out duration-300 bg-white ${small}`}>
       <div className='py-2 flex justify-between max-w-7xl mx-auto'>
         <div className='flex flex-row items-center'>
           <Link href="/">
