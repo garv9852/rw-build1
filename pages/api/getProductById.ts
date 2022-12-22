@@ -14,7 +14,7 @@ export default async function handler(
         const {id}=JSON.parse(req.body)
         const product=await getDoc(doc(db,"products",id));
         return res.json({
-            product:product.data()
+            product:{id:id,...product.data()}
         })
     }
     catch(err:any){

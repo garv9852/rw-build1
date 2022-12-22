@@ -8,13 +8,13 @@ const AuthContext=createContext({
     signUp: (email:string,password:string) => {  },
     login: (email:string,password:string) => {  },
     logout: () => {},
-    cart:{},
+    cart:[],
     setCart:(char:any)=>{}
     });
 export function AuthProvider({children}:props){
     const [user,setUser]=useState<any>("");
     const [authLoading,setAuthLoading]=useState(true);
-    const [cart,setCart]=useState<Object>({});
+    const [cart,setCart]=useState<any>([]);
     const signUp=(email:string,password:string)=>{
         return createUserWithEmailAndPassword(auth,email,password);
     }
@@ -28,7 +28,7 @@ export function AuthProvider({children}:props){
         const unsub=auth.onAuthStateChanged((u)=>{
             setUser(u);
             setAuthLoading(false);
-            setCart({});
+            setCart([]);
         })
         return ()=>{
             unsub();
