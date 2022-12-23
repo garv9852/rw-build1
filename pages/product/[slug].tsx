@@ -3,7 +3,7 @@ import absoluteUrl from "next-absolute-url"
 import Head from 'next/head'
 import Header from '../../components/home/Header'
 import AuthContext from '../../Authentication/AuthContext'
-import { imageConfigDefault } from 'next/dist/shared/lib/image-config'
+import Router from 'next/router'
 interface props {
     product: {
         id?: string,
@@ -17,13 +17,20 @@ interface props {
 }
 function product({ product }: props) {
     const [dialogBox, setDialogBox] = useState(false);
-    const [removeDialogBox, setRemoveDialogBox] = useState(true)
+    const [logedIn, setLogedIn] = useState(false);
     const [size, setSize] = useState(product.size[0].label);
     const [itemInCart, setItemInCart] = useState(0)
-    const { cart, setCart } = useContext(AuthContext);
+    const { cart, setCart,user } = useContext(AuthContext);
     useEffect(() => {
         setItemInCart(getCartNumber());
     }, [cart])
+    useEffect(() => {
+        const check = () => {
+          if (user != null)
+            setLogedIn(true);
+        }
+        check();
+      }, [user])
     const handleBuy = () => {
         if (!dialogBox) {
             setDialogBox(true);
@@ -40,10 +47,7 @@ function product({ product }: props) {
         setDialogBox(false);
     }
     const handleRemovefromCart = () => {
-        if (!removeDialogBox) {
-            setRemoveDialogBox(true);
-            return;
-        }
+        Router.push("/cart");
     }
     const getCartNumber = () => {
         let x = cart.filter((e: any) => {
