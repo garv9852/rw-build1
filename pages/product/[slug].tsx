@@ -43,17 +43,29 @@ function product({ product }: props) {
             setDialogBox(true);
             return;
         }
-        setCart([...cart, { id: product.id, size: size }]);
+        let tempCart:any=cart;
+        let x:any=tempCart.find((e:any)=>e.id==product.id && e.size==size);
+        if(x!=undefined)
+            x.qty+=1;
+        else
+        {
+            tempCart=[...tempCart,{ id: product.id, size: size,qty:1 }];
+        }
+        setCart([...tempCart]);
         setDialogBox(false);
     }
     const handleRemovefromCart = () => {
         Router.push("/cart");
     }
     const getCartNumber = () => {
-        let x = cart.filter((e: any) => {
-            return e.id == product.id
+        let x = 0;
+        cart.map((e:any)=>{
+            if(e.id==product.id)
+            {
+                x+=e.qty
+            }
         })
-        return x.length;
+        return x;
     }
     return (
         <>
