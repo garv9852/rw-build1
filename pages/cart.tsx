@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import AuthContext from '../Authentication/AuthContext'
 import Header from '../components/home/Header'
 import { useContext } from 'react'
-import absoluteUrl from 'next-absolute-url'
+import Loading from '../components/elements/Loading'
 const cat = [
   {
     id: "3i7rDU4N4JyEDuvS2DEZ",
@@ -25,17 +25,19 @@ const cat = [
 function cart() {
   const { cart, setCart } = useContext(AuthContext);
   const [showCart,setShowCart]=useState<object[]>([]);
+  const [loading,setLoading]=useState<boolean>(false);
   useEffect(() => {
     const get = () => {
       let tempCart: object[] = [];
       cart.map(async (e: any) => {
-        console.log(e.id);
+        setLoading(true);
         const resX = await fetch("/api/getProductById", {
           method: 'post',
           body: JSON.stringify({ id: e.id })
         })
         tempCart = [{ ...await resX.json(), ...e },...tempCart];
         setShowCart([...tempCart]);
+        setLoading(false);
       })
     }
     get();
@@ -120,6 +122,7 @@ function cart() {
           </div>
         </div>
       </div>
+      <Loading visible={loading}/>
     </div>
   )
 }
