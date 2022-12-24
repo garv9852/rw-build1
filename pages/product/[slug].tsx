@@ -141,6 +141,7 @@ function product({ product }: props) {
             </section>
             <div className={`${!dialogBox && "hidden"} transition duration-300 ease-ini-out fixed  top-0 items-center h-screen overflow-hidden w-screen flex justify-center bg-slate-200/50`}>
                 <div className="transtion bg-white rounded-2xl hover:shadow-lg duration-300 p-6 max-w-sm">
+                    <img onClick={() => setDialogBox(false)} className="cursor-pointer float-right mb-4 h-[1.2rem]" src='https://img.icons8.com/ios/50/FF0000/delete-sign--v1.png' />
                     <h1 className='text-xl font-semibold'>Select the Size</h1>
                     <div className="relative flex justify-center my-4">
                         <select value={size} onChange={(e) => setSize(e.target.value)} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
