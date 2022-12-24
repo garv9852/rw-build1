@@ -16,7 +16,6 @@ interface props {
 
 }
 function Home({ product }:props){
-  console.log(product)
   return (
     <div>
       <Head>

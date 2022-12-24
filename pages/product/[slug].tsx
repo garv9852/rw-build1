@@ -11,7 +11,7 @@ interface props {
         title: string,
         description: string,
         fabric: string,
-        price: number,
+        price: string,
         size: { label: string, pieces: string }[]
     }
 }
@@ -46,10 +46,13 @@ function product({ product }: props) {
         let tempCart:any=cart;
         let x:any=tempCart.find((e:any)=>e.id==product.id && e.size==size);
         if(x!=undefined)
+        {
             x.qty+=1;
+            x.price+=parseInt(product.price);
+        }
         else
         {
-            tempCart=[...tempCart,{ id: product.id, size: size,qty:1 }];
+            tempCart=[...tempCart,{ id: product.id, size: size,qty:1,price:parseInt(product.price) }];
         }
         setCart([...tempCart]);
         setDialogBox(false);
@@ -62,7 +65,7 @@ function product({ product }: props) {
         cart.map((e:any)=>{
             if(e.id==product.id)
             {
-                x+=e.qty
+                x+=parseInt(e.qty);
             }
         })
         return x;
