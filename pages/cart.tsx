@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import AuthContext from '../Authentication/AuthContext'
 import Header from '../components/home/Header'
-import { useContext } from 'react'
 import Loading from '../components/elements/Loading'
 interface pro {
   product: {
@@ -57,11 +56,12 @@ function cart() {
   }
   const handleSizeChange = (size: string, item: { id: string, size: string, qty: string }) => {
     const x = showCart.findIndex((e: any) => e.id == item.id && e.size == size);
+    console.log(showCart);
     const y = showCart.findIndex((e: any) => e.id == item.id && e.size != size);
     let tempCart: any = showCart;
+    tempCart[y].size = size;
     if (x != -1)
       tempCart = showCart.filter((_e: any, i: any) => i != x);
-    tempCart[y].size = size;
     setShowCart([...tempCart])
     setCart([...tempCart]);
   }
